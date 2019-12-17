@@ -1,45 +1,39 @@
 import React, { Component } from 'react';
 import './ThreadGallery.css'
-import image from "./rambo.jpg";
+import ThreadCard from '../ThreadCard/ThreadCard.js';
 
 class ThreadGallery extends Component {
     state = {  }
     render() { 
+      console.log(this.props.databaseUrl)
+    //   const threadEls = this.state.threads.map(thread => {
+    //   return <ThreadCard thread={thread} />;
+    // }); 
         return ( 
-            <div class="club-wrap">
-            <h3>Thread Gallery</h3>
-    
-    
-            <div className="container">
-              <div className="row">
+            
+          <div className="thread-wrap">
 
-
-                <div className="col s12 l4">
-                  <div className="card">
-                  <form>
-                <div className="input-field">
+        {/* INTRODCTION TO SIGN UP */}
+        <section className="section container " id="contact">
+          <div className="row">
+            <div className="col s12 l4 thread-form-wrap">
+            <form>
+              <h2>Create a discussion</h2>
+                <div className="input-field ">
                   <i className="material-icons prefix">account_circle</i>
-                  <input type="text" id="title" />
-                  <label className="label" for="title">
-                    Title:
+                  <input type="text" id="text" />
+                  <label className="label" for="name">
+                    Title
                   </label>
                 </div>
-               
-               
-                
                 <div className="input-field">
-                  <i className="material-icons prefix">star</i>
-                  <textarea
-                    id="prompt"
-                    className="materialize-textarea"
-                    cols="20"
-                    rows="20"
-                  ></textarea>
-                  <label className="label" for="prompt">
+                  <i className="material-icons prefix">contacts</i>
+                  <input type="text" id="text" />
+                  <label className="label" for="name">
                     Prompt
                   </label>
                 </div>
-
+                
 
                 {/* SUBMIT BUTTON */}
                 <div className="btn-wrap">
@@ -48,110 +42,31 @@ class ThreadGallery extends Component {
                     type="submit"
                     name="action"
                   >
-                    Submit
+                    Create
                   </button>
-                  <p className='login-message'>Already a member? <a href='/login'>Login</a></p>
+                  
                 </div>
-                
               </form>
-                    <div className="card-action">
-                      <a className="link" href="https://google.com" alt="test">
-                        <i className="material-icons right">add</i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-    
-                <div className="col s12 l4">
-                  <div className="card">
-                    <div className="card-image">
-                      <img src={image} alt="" />
-                    </div>
-                    <div className="card-content">
-                      <span className="card-title">Taxi Driver</span>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      </p>
-                    </div>
-                    <div className="card-action">
-                    <a className="link" href="https://google.com" alt="test">
-                        <i className="material-icons right">arrow_forward</i>
-                      </a>
-                      <a className="link" href="https://google.com" alt="test">
-                        <i className="material-icons right">add_circle</i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-    
-                <div className="col s12 l4">
-                  <div className="card">
-                    <div className="card-image">
-                      <img src={image} alt="" />
-                    </div>
-                    <div className="card-content">
-                      <span className="card-title">Blade Runner</span>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      </p>
-                    </div>
-                    <div className="card-action">
-                    <a className="link" href="https://google.com" alt="test">
-                        <i className="material-icons right">arrow_forward</i>
-                      </a>
-                      <a className="link" href="https://google.com" alt="test">
-                        <i className="material-icons right">add_circle</i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-    
-                <div className="col s12 l4">
-                  <div className="card">
-                    <div className="card-image">
-                      <img src={image} alt="" />
-                    </div>
-                    <div className="card-content">
-                      <span className="card-title">Before Sunrise</span>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      </p>
-                    </div>
-                    <div className="card-action">
-                      <a className="link" href="https://google.com" alt="test">
-                        <i className="material-icons right">arrow_forward</i>
-                      </a>
-                      <a className="link" href="https://google.com" alt="test">
-                        <i className="material-icons right">add_circle</i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-    
-                <div className="col s12 l4">
-                  <div className="card">
-                    <div className="card-image">
-                      <img src={image} alt="" />
-                    </div>
-                    <div className="card-content">
-                      <span className="card-title">My Dinner with Andre</span>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      </p>
-                    </div>
-                    <div className="card-action">
-                    <a className="link" href="https://google.com" alt="test">
-                        <i className="material-icons right">arrow_forward</i>
-                      </a>
-                      <a className="link" href="https://google.com" alt="test">
-                        <i className="material-icons right">add_circle</i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              
+            </div>
+
+
+
+            {/* SIGN UP FORM */}
+            <div className="col s12 l12 thread-gallery ">
+              <p>
+                The list of thread cards will go here
+              </p>
+              <p>
+                Mauris dolor augue, vulputate in pharetra ac, facilisis nec
+                libero. Fusce condimentum gravida urna, vitae scelerisque erat
+                ornare nec.
+              </p>
             </div>
           </div>
+        </section>
+      </div>
+                
 
          );
     }

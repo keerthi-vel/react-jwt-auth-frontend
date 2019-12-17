@@ -1,13 +1,13 @@
-.thread-form {
-    height: 25vh;
-    width: 25%;
-    background-color: blue;
-    display: inline-block;
+.thread-form-wrap {
+    border: 1px solid red
 }
 
 .thread-gallery {
-    height: 100vh;
-    width: 75%;
-    background-color: rgb(237, 178, 100);
-    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.thread-wrap {
+    margin: 0;
+    padding: 0;
 }
