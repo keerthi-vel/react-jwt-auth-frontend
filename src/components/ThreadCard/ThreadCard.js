@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import movieImg from './rambo.jpg'
+ import "./ThreadCard.css";
+ import "materialize-css/dist/css/materialize.min.css";
 
 class ThreadCard extends Component {
     state = {  }
     render() { 
+        console.log(this.props.thread)
         return ( 
 
             <div class="row">
                 <div class="col s12 m6">
                     <div class="card">
                         <div class="card-image">
-                            <img src={movieImg} />
-                            <span class="card-title">Card Title</span>
+                            <img src={this.props.thread.thumbnailURL} />
+                            <span class="card-title">{this.props.thread.title}</span>
                             <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                         </div>
                         <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                            <p>{this.props.thread.prompt}</p>
                         </div>
                     </div>
                 </div>

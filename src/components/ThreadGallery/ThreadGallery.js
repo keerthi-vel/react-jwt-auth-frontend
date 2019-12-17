@@ -1,14 +1,36 @@
 import React, { Component } from 'react';
 import './ThreadGallery.css'
 import ThreadCard from '../ThreadCard/ThreadCard.js';
+import axios from "axios";
+import "materialize-css/dist/css/materialize.min.css";
 
 class ThreadGallery extends Component {
-    state = {  }
+    state = {  
+      threads:[]
+    };
+
+  componentDidMount() {
+    this.getThreads();
+  }
+
+  getThreads = () => {
+    axios({
+      method: "get",
+      url: `${this.props.databaseUrl}/api/threads`,
+    })
+      .then(response => {
+
+        this.setState({
+          threads: response.data.threads
+        });
+      })
+      .catch(err => console.log(err));
+  };
     render() { 
       console.log(this.props.databaseUrl)
-    //   const threadEls = this.state.threads.map(thread => {
-    //   return <ThreadCard thread={thread} />;
-    // }); 
+      const threadEls = this.state.threads.map(thread => {
+       return <ThreadCard thread={thread} />;
+     }); 
         return ( 
             
           <div className="thread-wrap">
@@ -16,6 +38,7 @@ class ThreadGallery extends Component {
         {/* INTRODCTION TO SIGN UP */}
         <section className="section container " id="contact">
           <div className="row">
+          {threadEls}
             <div className="col s12 l4 thread-form-wrap">
             <form>
               <h2>Create a discussion</h2>
