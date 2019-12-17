@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from "axios"
 
 import './LogInForm.css'
 
@@ -11,7 +12,7 @@ class LogInForm extends Component {
         <form>
           <div>
             <label htmlFor='email'>Email</label>
-            <input type='text' name='email' onChange={this.props.handleInput} />
+            <input name="username" type='text' onChange={this.props.handleInput} />
           </div>
           <div>
             <label htmlFor='password'>Password</label>

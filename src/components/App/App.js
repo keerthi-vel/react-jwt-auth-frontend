@@ -21,7 +21,7 @@ const databaseUrl =
 
 class App extends Component {
   state = {
-    email: "",
+    username: "",
     password: "",
     isLoggedIn: false,
     user: null
@@ -74,6 +74,7 @@ class App extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
+    console.log(this.state)
   };
 
   handleSignUp = e => {
@@ -101,7 +102,7 @@ class App extends Component {
   handleLogIn = e => {
     e.preventDefault();
     let loginUser = {
-      email: this.state.email,
+      username: this.state.username,
       password: this.state.password
     };
     axios({
@@ -115,7 +116,7 @@ class App extends Component {
         this.setState({
           isLoggedIn: true,
           user: response.data.user,
-          email: "",
+          username: "",
           password: ""
         });
         const location = {
@@ -128,6 +129,7 @@ class App extends Component {
   };
 
   render() {
+    
     return (
       <div>
         <NavBar isLoggedIn={this.state.isLoggedIn} user={this.state.user} />
