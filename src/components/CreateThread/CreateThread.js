@@ -1,8 +1,46 @@
 import React, { Component } from "react";
 import "./CreateThread.css";
+import axios from "axios";
+import "materialize-css/dist/css/materialize.min.css";
 
-class SignUpForm extends Component {
+class CreateThread extends Component {
+  state = {
+    threads: [],
+    newThread: {
+      title: '',
+      prompt: '',
+      thumbnailURL:'' ,
+      backdropURL: ''
+      
+    }
+}
+CreateThread = e => {
+  e.preventDefault();
+  axios({
+  url: `${this.props.databaseUrl}/api/threads`,
+    method: "post",
+    data: { newThread: this.state.newThread }
+  }).then(response => {
+    this.setState({ thread: response.data.threads });
+  });
+};
+// deleteThread = e => {
+// axios({
+//   url: `${this.props.databaseUrl}/api/threads/${e.target.id}`,
+//   method: "delete"
+// }).then(response => {
+//   this.setState({ threads: response.data.threads });
+// });
+// };
   render() {
+    const threadEls = this.state.threads.map(thread => {
+      return (
+        <div key={thread.id} id="appointmentDiv">
+            <p>{thread.title}</p>
+            <p>{thread.prompt}</p>
+         </div>
+      );
+    });
     return (
       <div className='create-thread-wrap'>
         <form action="/action_page.php" id="usrform">
@@ -14,12 +52,13 @@ class SignUpForm extends Component {
             Enter text here...
             </textarea>
         </div>
+        {threadEls}
       </div>
     );
   }
 }
 
-export default SignUpForm;
+export default CreateThread;
 
 {
   /* <form className='form'>
