@@ -89,10 +89,8 @@ class ThreadGallery extends Component {
           </div>
         </section>
       </div>
-                
-
-         );
-    }
+    );
+  }
 }
- 
+
 export default ThreadGallery;

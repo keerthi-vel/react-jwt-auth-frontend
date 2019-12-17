@@ -13,6 +13,7 @@ import CreateClub from "../CreateClub/CreateClub";
 import Thread from "../Thread/Thread";
 import "./App.css";
 import ThreadGallery from "../ThreadGallery/ThreadGallery";
+import CreateThread from "../CreateThread/CreateThread";
 
 const databaseUrl =
   process.env.NODE_ENV === "production"
@@ -200,6 +201,11 @@ class App extends Component {
               path="/ThreadGallery"
               component={ThreadGallery}
               component={() => <ThreadGallery databaseUrl={databaseUrl} />}
+            />
+            <Route
+              path="/CreateThread"
+              component={CreateThread}
+              component={() => <CreateThread databaseUrl={databaseUrl} />}
             />
           </Switch>
         </div>
