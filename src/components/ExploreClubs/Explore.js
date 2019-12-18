@@ -30,7 +30,7 @@ class Explore extends Component {
   render() {
     console.log(this.props.databaseUrl)
     const clubEls = this.state.clubs.map(club => {
-      return <ClubCard club={club} />;
+      return <ClubCard club={club}/>;
     });
 
     return (

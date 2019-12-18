@@ -5,6 +5,7 @@ import "materialize-css/dist/css/materialize.min.css";
 
 class ClubCard extends Component {
   state = {};
+
   render() {
     console.log(this.props.club)
     return (
@@ -24,7 +25,7 @@ class ClubCard extends Component {
                   </p>
                 </div>
                 <div className="card-action">
-                <a className="link" href="/ThreadGallery" alt="test">
+                <a className="link" href="/ThreadGallery" alt="test" onClick={this.handleClick}>
                     <i className="material-icons right">arrow_forward</i>
                   </a>
                   <a className="link" href="https://google.com" alt="test">

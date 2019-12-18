@@ -25,8 +25,13 @@ class App extends Component {
     username: "",
     password: "",
     isLoggedIn: false,
-    user: null
+    user: null,
+    selectedClub: ""
   };
+
+  handlePassingProps = club => {
+    this.setState({selectedClub: club})
+  }
 
   componentDidMount() {
     if (localStorage.token) {
@@ -186,7 +191,7 @@ class App extends Component {
 
             <Route
               path="/explore"
-              component={() => <Explore databaseUrl={databaseUrl} />}
+              component={() => <Explore  databaseUrl={databaseUrl} />}
             />
             <Route
               path="/CreateClub"
@@ -200,7 +205,7 @@ class App extends Component {
             <Route
               path="/ThreadGallery"
               component={ThreadGallery}
-              component={() => <ThreadGallery databaseUrl={databaseUrl} />}
+              component={() => <ThreadGallery databaseUrl={databaseUrl} selectedClub={this.state.selectedClub}/>}
             />
             <Route
               path="/CreateThread"
